@@ -5,36 +5,18 @@
 //  Created by Ahmed Besbes on 27/10/2021.
 //
 
-import Foundation
+import Alamofire
 import Combine
 
-enum FetchError: Error {
-    case failed
-}
-
 protocol MoviesServiceProtocol: AnyObject {
-    func fetchMovies() -> AnyPublisher<Movies, Error>
+    func fetchMovies() -> Future<Movies, Error>
 }
 
 class MoviesService: MoviesServiceProtocol {
     
     static let shared = MoviesService()
     
-    func fetchMovies() -> AnyPublisher<Movies, Error> {
-        guard let url = URL(string: EndPoints.listMovies.description) else {
-            return Future<Movies, Error>(){ promise in
-                promise(.failure(FetchError.failed))
-            }.eraseToAnyPublisher()
-        }
-        let publisher = URLSession.shared.dataTaskPublisher(for: url)
-            .map({$0.data})
-            .decode(type: Movies.self,
-                    decoder: JSONDecoder())
-            .catch { error in
-                Future<Movies, Error>(){ promise in
-                    promise(.failure(error))
-                }
-            }.eraseToAnyPublisher()
-        return publisher
+    func fetchMovies() -> Future<Movies, Error> {
+         return CoreService.request(url: EndPoints.listMovies.description, method: .get, parameters: nil)
     }
 }

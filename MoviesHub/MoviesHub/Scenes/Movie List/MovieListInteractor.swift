@@ -21,24 +21,23 @@ class MovieListInteractor: MovieListInteractorProtocol {
     
     var presenter: MovieListPresenter? = MovieListPresenter()
 //    var presenter: MovieListPresenterProtocol? = MovieListPresenter()
-    private var subscriber = Set<AnyCancellable>()
+    private var cancellableSet = Set<AnyCancellable>()
 
     func fetchMoviesList() {
         MoviesService.shared.fetchMovies()
+            .subscribe(on: DispatchQueue.global())
             .receive(on: DispatchQueue.main)
-            .sink { response in
-                switch response {
+            .sink(receiveCompletion: { completion in
+                switch completion {
                 case .failure(let error):
                     debugPrint(error)
-//                    self.presenter?.onErrorSearch(error: error)
                 case .finished:
-                    debugPrint("process Finished")
+                    debugPrint("movies list fetched from database")
                 }
-            } receiveValue: { [weak self] movies in
+            }, receiveValue: { [weak self] movies in
                 self?.presenter?.viewController = self?.viewController
                 self?.presenter?.presentMoviesList(movies: movies)
-//                self.presenter?.onSuccessSearch(res: entities)
-            }
-            .store(in: &self.subscriber)
+            })
+            .store(in: &self.cancellableSet)
     }
 }

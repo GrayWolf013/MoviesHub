@@ -36,7 +36,6 @@ class MovieListViewController: BaseViewController, MovieListViewControllerProtoc
     // MARK: UI
     
     private func setUpUI() {
-        title = "MoviesHub"
         setUpTableView()
     }
 

@@ -129,6 +129,23 @@
 			path = "Offline banner view";
 			sourceTree = "<group>";
 		};
+		D8C89A802731782E003A2DA8 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				D8E013D727271A7D00B4FF51 /* Assets.xcassets */,
+				D8E013D927271A7D00B4FF51 /* LaunchScreen.storyboard */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		D8C89A812731784F003A2DA8 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				D8E013DC27271A7D00B4FF51 /* Info.plist */,
+			);
+			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
 		D8E013C227271A7B00B4FF51 = {
 			isa = PBXGroup;
 			children = (
@@ -154,9 +171,8 @@
 				D829C7852728530C0017B6A6 /* Network */,
 				D8E013E227271ABD00B4FF51 /* Scenes */,
 				D8E013CE27271A7B00B4FF51 /* AppDelegate.swift */,
-				D8E013D727271A7D00B4FF51 /* Assets.xcassets */,
-				D8E013D927271A7D00B4FF51 /* LaunchScreen.storyboard */,
-				D8E013DC27271A7D00B4FF51 /* Info.plist */,
+				D8C89A802731782E003A2DA8 /* Resources */,
+				D8C89A812731784F003A2DA8 /* Supporting Files */,
 			);
 			path = MoviesHub;
 			sourceTree = "<group>";

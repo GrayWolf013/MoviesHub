@@ -15,12 +15,8 @@ protocol MovieListInteractorProtocol
 
 
 class MovieListInteractor: MovieListInteractorProtocol {
-    
-    //TODO: remove after test
-    var viewController: MovieListViewControllerProtocol?
-    
-    var presenter: MovieListPresenter? = MovieListPresenter()
-//    var presenter: MovieListPresenterProtocol? = MovieListPresenter()
+
+    var presenter: MovieListPresenterProtocol?
     private var cancellableSet = Set<AnyCancellable>()
 
     func fetchMoviesList() {
@@ -35,7 +31,6 @@ class MovieListInteractor: MovieListInteractorProtocol {
                     debugPrint("movies list fetched from database")
                 }
             }, receiveValue: { [weak self] movies in
-                self?.presenter?.viewController = self?.viewController
                 self?.presenter?.presentMoviesList(movies: movies)
             })
             .store(in: &self.cancellableSet)

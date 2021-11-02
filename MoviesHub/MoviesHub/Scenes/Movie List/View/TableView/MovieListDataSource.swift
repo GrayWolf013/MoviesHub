@@ -11,7 +11,18 @@ class MovieListDataSource: NSObject, UITableViewDataSource {
     
     // MARK: - Properties
     
-    var items: [Movie] = []
+    private var items: [Movie] = []
+    
+    // MARK: - DI
+
+    func set(items: [Movie]) {
+        self.items = items
+    }
+    
+    // uncoment if needed
+//    func item(at index: Int) -> Movie {
+//        return items[index]
+//    }
     
     // MARK: - TableView DataSource
 

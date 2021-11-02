@@ -20,19 +20,41 @@ class MovieListViewController: BaseViewController, MovieListViewControllerProtoc
     
     // MARK: - Properties
 
-    //    var interactor: MovieListInteractorProtocol? = MovieListInteractor()
-    var interactor: MovieListInteractor? = MovieListInteractor()
+    var interactor: MovieListInteractorProtocol?
     var dataSource = MovieListDataSource()
 
+    // MARK: Object lifecycle
+    
+    override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
+        super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
+        setup()
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        setup()
+    }
+    
     // MARK: View lifecycle
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        setup()
         setUpUI()
-        interactor?.viewController = self
         interactor?.fetchMoviesList()
     }
 
+    // MARK: Setup
+
+    func setup() {
+        let viewController = self
+        let interactor = MovieListInteractor()
+        let presenter = MovieListPresenter()
+        viewController.interactor = interactor
+        interactor.presenter = presenter
+        presenter.viewController = viewController
+    }
+    
     // MARK: UI
     
     private func setUpUI() {
@@ -48,7 +70,7 @@ class MovieListViewController: BaseViewController, MovieListViewControllerProtoc
 
     func display(movies: Movies) {
         DispatchQueue.main.async { [weak self] in
-            self?.dataSource.items = movies.results
+            self?.dataSource.set(items: movies.results)
             self?.tableView.reloadData()
         }
     }

@@ -12,7 +12,7 @@ protocol MovieListViewControllerProtocol//: UIViewControllerRoutingProtocol
     func display(movies: Movies)
 }
 
-class MovieListViewController: UIViewController, MovieListViewControllerProtocol {
+class MovieListViewController: BaseViewController, MovieListViewControllerProtocol {
     
     // MARK: Outlets
     

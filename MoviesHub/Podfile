@@ -7,5 +7,5 @@ target 'MoviesHub' do
 
   # Pods for MoviesHub
   pod 'Alamofire'
-
+  pod 'Kingfisher'
 end

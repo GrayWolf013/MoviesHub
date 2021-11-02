@@ -13,7 +13,7 @@ class MovieTableViewCell: UITableViewCell {
     
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var releaseDateLabel: UILabel!
-    @IBOutlet weak var coverPictureLabel: UIImageView!
+    @IBOutlet weak var coverPictureImageView: UIImageView!
     
     // MARK: - Properties
 
@@ -24,6 +24,7 @@ class MovieTableViewCell: UITableViewCell {
     // MARK: - Actions
 
     func configure(movie: Movie) {
+        coverPictureImageView.setImageWithUrl(url: BaseUrls.image.rawValue.appending(movie.posterPath), placeholder: nil, radius: 0)
         titleLabel.text = movie.title
         releaseDateLabel.text = movie.releaseDate
     }

@@ -9,6 +9,7 @@ import Foundation
 
 enum BaseUrls: String {
    case url = "https://api.themoviedb.org/3/"
+   case image = "https://image.tmdb.org/t/p/w500/"
 }
 
 struct APISettings {

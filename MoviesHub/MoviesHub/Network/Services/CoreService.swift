@@ -9,7 +9,7 @@ import Combine
 import Alamofire
 
 struct CoreService {
-    
+
     static func request<T: Decodable, E: Error>(
         url: String,
         method: HTTPMethod,
@@ -23,15 +23,17 @@ struct CoreService {
                 method: method,
                 parameters: parameters,
                 headers: headers
-            ).responseDecodable(decoder: decoder, completionHandler: { (response: DataResponse<T, AFError>) in
+            ).responseDecodable(decoder: decoder,
+                                completionHandler: { (response: DataResponse<T, AFError>) in
                 switch response.result {
-                    case .success(let value):
-                        promise(.success(value))
-                    case .failure(let error):
-                        promise(.failure(
-                            NSError(domain: error.destinationURL?.absoluteString ?? "", code: error.responseCode ?? 0) as! E
-                            )
-                    )
+                case .success(let value):
+                    promise(.success(value))
+                case .failure(let error):
+                    promise(.failure(
+                        (NSError(domain: error.destinationURL?.absoluteString ?? "",
+                                 code: error.responseCode ?? 0) as? E)!
+                        )
+                )
                 }
             })
         })

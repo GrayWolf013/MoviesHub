@@ -10,11 +10,11 @@ import UIKit
 class MovieTableViewCell: UITableViewCell {
 
     // MARK: Outlets
-    
+
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var releaseDateLabel: UILabel!
     @IBOutlet weak var coverPictureImageView: UIImageView!
-    
+
     // MARK: - Properties
 
     static let identifier = "moviesCell"
@@ -24,7 +24,9 @@ class MovieTableViewCell: UITableViewCell {
     // MARK: - Actions
 
     func configure(movie: Movie) {
-        coverPictureImageView.setImageWithUrl(url: BaseUrls.image.rawValue.appending(movie.posterPath), placeholder: nil, radius: 0)
+        coverPictureImageView.setImageWithUrl(url: BaseUrls.image.rawValue.appending(movie.posterPath),
+                                              placeholder: nil,
+                                              radius: 0)
         titleLabel.text = movie.title
         releaseDateLabel.text = movie.releaseDate
     }

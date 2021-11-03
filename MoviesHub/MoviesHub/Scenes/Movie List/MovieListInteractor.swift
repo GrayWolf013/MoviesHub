@@ -8,11 +8,9 @@
 import Foundation
 import Combine
 
-protocol MovieListInteractorProtocol
-{
+protocol MovieListInteractorProtocol {
     func fetchMoviesList()
 }
-
 
 class MovieListInteractor: MovieListInteractorProtocol {
 

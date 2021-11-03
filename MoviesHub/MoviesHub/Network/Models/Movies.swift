@@ -9,9 +9,9 @@ import Foundation
 
 // MARK: - Movie
 struct Movies: Codable {
-    
+
     let results: [Movie]
-    
+
     enum CodingKeys: String, CodingKey {
         case results
     }
@@ -19,7 +19,7 @@ struct Movies: Codable {
 
 // MARK: - Result
 struct Movie: Codable {
-    
+
     let id: Int
     let originalTitle, overview: String
     let posterPath, releaseDate, title: String

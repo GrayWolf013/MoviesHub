@@ -18,7 +18,6 @@ class ConnectivityMananger: NSObject {
     private static let _shared = ConnectivityMananger()
 
     class func shared() -> ConnectivityMananger {
-
         return _shared
     }
 
@@ -27,7 +26,6 @@ class ConnectivityMananger: NSObject {
     var isNetworkAvailable: Bool {
         return reachability?.isReachable ?? false
     }
-
 
     private func setupReachability() {
         reachability?.startListening(onQueue: .main, onUpdatePerforming: { [weak self] (status) in
@@ -43,16 +41,13 @@ class ConnectivityMananger: NSObject {
     func stopListening() {
         reachability?.stopListening()
     }
-    
+
     private func updateWith(status: NetworkReachabilityManager.NetworkReachabilityStatus) {
         switch status {
-        case .unknown: fallthrough
-        case .notReachable:
+        case .unknown, .notReachable:
             self.isConnected = false
-        case .reachable(.ethernetOrWiFi): fallthrough
-        case .reachable(.cellular):
+        case .reachable(.ethernetOrWiFi), .reachable(.cellular):
             self.isConnected = true
         }
     }
 }
-

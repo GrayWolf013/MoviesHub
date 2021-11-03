@@ -19,11 +19,11 @@ struct APISettings {
 }
 
 enum EndPoints: String {
-    
+
    case listMovies
    case detail
-    
-   var path : String {
+
+   var path: String {
        switch self {
        case .listMovies:
            return "discover/movie?api_key=\(Constants.apiKey)"

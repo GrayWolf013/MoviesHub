@@ -266,6 +266,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = D8E013DF27271A7D00B4FF51 /* Build configuration list for PBXNativeTarget "MoviesHub" */;
 			buildPhases = (
+				D81373842732A78E0037E269 /* ShellScript */,
 				D92FBD5A87F997AD011F765F /* [CP] Check Pods Manifest.lock */,
 				D8E013C727271A7B00B4FF51 /* Sources */,
 				D8E013C827271A7B00B4FF51 /* Frameworks */,
@@ -347,6 +348,23 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-MoviesHub/Pods-MoviesHub-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
+		};
+		D81373842732A78E0037E269 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/SwiftLint/swiftlint\"\n";
 		};
 		D92FBD5A87F997AD011F765F /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;

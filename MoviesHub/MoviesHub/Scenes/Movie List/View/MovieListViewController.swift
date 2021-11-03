@@ -13,28 +13,28 @@ protocol MovieListViewControllerProtocol//: UIViewControllerRoutingProtocol
 }
 
 class MovieListViewController: BaseViewController, MovieListViewControllerProtocol {
-    
+
     // MARK: Outlets
-    
+
     @IBOutlet weak var tableView: UITableView!
-    
+
     // MARK: - Properties
 
     var interactor: MovieListInteractorProtocol?
     var dataSource = MovieListDataSource()
 
     // MARK: Object lifecycle
-    
+
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
         setup()
     }
-    
+
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         setup()
     }
-    
+
     // MARK: View lifecycle
 
     override func viewDidLoad() {
@@ -54,9 +54,9 @@ class MovieListViewController: BaseViewController, MovieListViewControllerProtoc
         interactor.presenter = presenter
         presenter.viewController = viewController
     }
-    
+
     // MARK: UI
-    
+
     private func setUpUI() {
         setUpTableView()
     }
@@ -77,7 +77,7 @@ class MovieListViewController: BaseViewController, MovieListViewControllerProtoc
 }
 
 extension MovieListViewController: UITableViewDelegate {
-    
+
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 
     }

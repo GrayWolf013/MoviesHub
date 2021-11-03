@@ -13,9 +13,9 @@ protocol MoviesServiceProtocol: AnyObject {
 }
 
 class MoviesService: MoviesServiceProtocol {
-    
+
     static let shared = MoviesService()
-    
+
     func fetchMovies() -> Future<Movies, Error> {
          return CoreService.request(url: EndPoints.listMovies.description, method: .get, parameters: nil)
     }

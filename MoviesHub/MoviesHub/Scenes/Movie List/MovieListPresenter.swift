@@ -7,13 +7,12 @@
 
 import UIKit
 
-protocol MovieListPresenterProtocol
-{
+protocol MovieListPresenterProtocol {
     func presentMoviesList(movies: Movies)
 }
 
 class MovieListPresenter: MovieListPresenterProtocol {
-    
+
     var viewController: MovieListViewControllerProtocol?
 
     func presentMoviesList(movies: Movies) {

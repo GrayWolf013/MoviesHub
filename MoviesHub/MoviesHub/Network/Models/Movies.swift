@@ -18,11 +18,10 @@ struct Movies: Codable {
 }
 
 // MARK: - Result
-struct Movie: Codable {
-
-    let id: Int
-    let originalTitle, overview: String
-    let posterPath, releaseDate, title: String
+struct Movie: Codable, Persistable {
+    let id: Int?
+    let originalTitle, overview: String?
+    let posterPath, releaseDate, title: String?
 
     enum CodingKeys: String, CodingKey {
         case id
@@ -31,5 +30,24 @@ struct Movie: Codable {
         case posterPath = "poster_path"
         case releaseDate = "release_date"
         case title
+    }
+
+    public init(managedObject: MovieRealmObject) {
+        id = managedObject.id
+        originalTitle = managedObject.originalTitle
+        overview = managedObject.overview
+        posterPath = managedObject.posterPath
+        releaseDate = managedObject.releaseDate
+        title = managedObject.title
+    }
+    public func managedObject() -> MovieRealmObject {
+        let movie = MovieRealmObject()
+        movie.id = id ?? 0
+        movie.originalTitle = originalTitle
+        movie.overview = overview
+        movie.posterPath = posterPath
+        movie.releaseDate = releaseDate
+        movie.title = title
+        return movie
     }
 }

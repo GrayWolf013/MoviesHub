@@ -24,10 +24,11 @@ class MovieTableViewCell: UITableViewCell {
     // MARK: - Actions
 
     func configure(movie: Movie) {
-        coverPictureImageView.setImageWithUrl(url: BaseUrls.image.rawValue.appending(movie.posterPath),
-                                              placeholder: nil,
-                                              radius: 0)
         titleLabel.text = movie.title
         releaseDateLabel.text = movie.releaseDate
+        guard let posterPath = movie.posterPath else {return}
+        coverPictureImageView.setImageWithUrl(url: BaseUrls.image.rawValue.appending(posterPath),
+                                              placeholder: nil,
+                                              radius: 0)
     }
 }

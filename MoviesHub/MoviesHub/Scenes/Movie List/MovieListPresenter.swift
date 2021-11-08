@@ -8,14 +8,18 @@
 import UIKit
 
 protocol MovieListPresenterProtocol {
-    func presentMoviesList(movies: Movies)
+    func presentMoviesList(movies: [Movie])
 }
 
 class MovieListPresenter: MovieListPresenterProtocol {
 
+    // MARK: - Properties
+
     var viewController: MovieListViewControllerProtocol?
 
-    func presentMoviesList(movies: Movies) {
+    // MARK: Actions
+
+    func presentMoviesList(movies: [Movie]) {
         viewController?.display(movies: movies)
     }
 }

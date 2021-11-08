@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		449A122497759B57A6A93258 /* Pods_MoviesHub.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3243244D3EE65CC3B43FEA5F /* Pods_MoviesHub.framework */; };
 		D88F9911273025F600087648 /* CoreService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D88F9910273025F600087648 /* CoreService.swift */; };
+		D89B57D527396F750043F891 /* PersistanceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D89B57D227396F750043F891 /* PersistanceManager.swift */; };
+		D89B57D627396F750043F891 /* MovieRealmObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = D89B57D427396F750043F891 /* MovieRealmObject.swift */; };
 		D89BD3BE27305210002E93AB /* UIImageViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D89BD3BD27305210002E93AB /* UIImageViewExtension.swift */; };
 		D8C89A7627313873003A2DA8 /* ConnectivityMananger.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8C89A7527313873003A2DA8 /* ConnectivityMananger.swift */; };
 		D8C89A78273138EE003A2DA8 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8C89A77273138EE003A2DA8 /* BaseViewController.swift */; };
@@ -36,6 +38,8 @@
 		3243244D3EE65CC3B43FEA5F /* Pods_MoviesHub.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MoviesHub.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		594B57471F21EEC938D70C22 /* Pods-MoviesHub.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MoviesHub.debug.xcconfig"; path = "Target Support Files/Pods-MoviesHub/Pods-MoviesHub.debug.xcconfig"; sourceTree = "<group>"; };
 		D88F9910273025F600087648 /* CoreService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreService.swift; sourceTree = "<group>"; };
+		D89B57D227396F750043F891 /* PersistanceManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersistanceManager.swift; sourceTree = "<group>"; };
+		D89B57D427396F750043F891 /* MovieRealmObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MovieRealmObject.swift; sourceTree = "<group>"; };
 		D89BD3BD27305210002E93AB /* UIImageViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageViewExtension.swift; sourceTree = "<group>"; };
 		D8C89A7527313873003A2DA8 /* ConnectivityMananger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectivityMananger.swift; sourceTree = "<group>"; };
 		D8C89A77273138EE003A2DA8 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
@@ -100,6 +104,23 @@
 				D8C89A7427313854003A2DA8 /* Services */,
 			);
 			path = Network;
+			sourceTree = "<group>";
+		};
+		D89B57D127396F750043F891 /* Persistence Layer */ = {
+			isa = PBXGroup;
+			children = (
+				D89B57D227396F750043F891 /* PersistanceManager.swift */,
+				D89B57D327396F750043F891 /* Realm Objects */,
+			);
+			path = "Persistence Layer";
+			sourceTree = "<group>";
+		};
+		D89B57D327396F750043F891 /* Realm Objects */ = {
+			isa = PBXGroup;
+			children = (
+				D89B57D427396F750043F891 /* MovieRealmObject.swift */,
+			);
+			path = "Realm Objects";
 			sourceTree = "<group>";
 		};
 		D89BD3BC273051F0002E93AB /* Extensions */ = {
@@ -198,6 +219,7 @@
 		D8E38D642728030400BE5472 /* Commun */ = {
 			isa = PBXGroup;
 			children = (
+				D89B57D127396F750043F891 /* Persistence Layer */,
 				D8C89A79273148A2003A2DA8 /* Offline banner view */,
 				D8C89A77273138EE003A2DA8 /* BaseViewController.swift */,
 				D89BD3BC273051F0002E93AB /* Extensions */,
@@ -266,8 +288,8 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = D8E013DF27271A7D00B4FF51 /* Build configuration list for PBXNativeTarget "MoviesHub" */;
 			buildPhases = (
-				D81373842732A78E0037E269 /* ShellScript */,
 				D92FBD5A87F997AD011F765F /* [CP] Check Pods Manifest.lock */,
+				D81373842732A78E0037E269 /* ShellScript */,
 				D8E013C727271A7B00B4FF51 /* Sources */,
 				D8E013C827271A7B00B4FF51 /* Frameworks */,
 				D8E013C927271A7B00B4FF51 /* Resources */,
@@ -398,6 +420,8 @@
 				D8E013E527271ADD00B4FF51 /* MovieListViewController.swift in Sources */,
 				D8F9B1D327298A6900CACEFD /* MovieListInteractor.swift in Sources */,
 				D89BD3BE27305210002E93AB /* UIImageViewExtension.swift in Sources */,
+				D89B57D627396F750043F891 /* MovieRealmObject.swift in Sources */,
+				D89B57D527396F750043F891 /* PersistanceManager.swift in Sources */,
 				D8F9B1DD2729929E00CACEFD /* MovieListDataSource.swift in Sources */,
 				D88F9911273025F600087648 /* CoreService.swift in Sources */,
 				D8C89A78273138EE003A2DA8 /* BaseViewController.swift in Sources */,

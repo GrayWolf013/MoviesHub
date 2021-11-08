@@ -9,7 +9,7 @@ import UIKit
 
 protocol MovieListViewControllerProtocol//: UIViewControllerRoutingProtocol
 {
-    func display(movies: Movies)
+    func display(movies: [Movie])
 }
 
 class MovieListViewController: BaseViewController, MovieListViewControllerProtocol {
@@ -68,9 +68,9 @@ class MovieListViewController: BaseViewController, MovieListViewControllerProtoc
     }
     // MARK: Actions
 
-    func display(movies: Movies) {
+    func display(movies: [Movie]) {
         DispatchQueue.main.async { [weak self] in
-            self?.dataSource.set(items: movies.results)
+            self?.dataSource.set(items: movies)
             self?.tableView.reloadData()
         }
     }
